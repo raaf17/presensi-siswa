@@ -50,7 +50,7 @@ Untuk menjalankan aplikasi atau web ini kamu harus install XAMPP dan mempunyai s
 
 ```bash
 # Clone repository ini atau download di
-$ git clone https://github.com/raaf17/presensi-app.git
+$ git clone https://github.com/raaf17/presensi-siswa.git
 
 # Buat database
 Buat database dengan nama "db_presensi" di DMBS [phpmyadmin, dll]
