@@ -1,102 +1,89 @@
-# CodeIgniter 4 Development
+<h1 align="center">Selamat datang di repository Presensi Siswa! 👋🏻</h1>
 
-[![PHPUnit](https://github.com/codeigniter4/CodeIgniter4/workflows/PHPUnit/badge.svg)](https://github.com/codeigniter4/CodeIgniter4/actions/workflows/test-phpunit.yml)
-[![PHPStan](https://github.com/codeigniter4/CodeIgniter4/actions/workflows/test-phpstan.yml/badge.svg)](https://github.com/codeigniter4/CodeIgniter4/actions/workflows/test-phpstan.yml)
-[![Psalm](https://github.com/codeigniter4/CodeIgniter4/actions/workflows/test-psalm.yml/badge.svg)](https://github.com/codeigniter4/CodeIgniter4/actions/workflows/test-psalm.yml)
-[![Coverage Status](https://coveralls.io/repos/github/codeigniter4/CodeIgniter4/badge.svg?branch=develop)](https://coveralls.io/github/codeigniter4/CodeIgniter4?branch=develop)
-[![Downloads](https://poser.pugx.org/codeigniter4/framework/downloads)](https://packagist.org/packages/codeigniter4/framework)
-[![GitHub release (latest by date)](https://img.shields.io/github/v/release/codeigniter4/CodeIgniter4)](https://packagist.org/packages/codeigniter4/framework)
-[![GitHub stars](https://img.shields.io/github/stars/codeigniter4/CodeIgniter4)](https://packagist.org/packages/codeigniter4/framework)
-[![GitHub license](https://img.shields.io/github/license/codeigniter4/CodeIgniter4)](https://github.com/codeigniter4/CodeIgniter4/blob/develop/LICENSE)
-[![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/codeigniter4/CodeIgniter4/pulls)
-<br>
+<p></p>
 
-## What is CodeIgniter?
+<h4 align="center">Presensi Siswa: Mempermudah manajemen kehadiran siswa dengan website</h4>
 
-CodeIgniter is a PHP full-stack web framework that is light, fast, flexible and secure.
-More information can be found at the [official site](https://codeigniter.com).
+<p></p>
 
-This repository holds the source code for CodeIgniter 4 only.
-Version 4 is a complete rewrite to bring the quality and the code into a more modern version,
-while still keeping as many of the things intact that has made people love the framework over the years.
+<p align="center">
+	<img src="https://img.shields.io/github/issues/raaf17/presensi-app?style=flat-square">
+	<img src="https://img.shields.io/github/stars/raaf17/presensi-app?style=flat-square"> 
+	<img src="https://img.shields.io/github/forks/raaf17/presensi-app?style=flat-square">
+	<img src="https://img.shields.io/github/followers/raaf17.svg?style=flat-square&label=followers">
+</p>
 
-More information about the plans for version 4 can be found in [CodeIgniter 4](https://forum.codeigniter.com/forumdisplay.php?fid=28) on the forums.
+<p align="center">
+  <a href="#tentang">Tentang Project</a> •
+  <a href="#download">Download & Install</a> •
+  <a href="#akun">Akun Default</a>
+</p>
 
-### Documentation
+<p></p>
 
-The [User Guide](https://codeigniter4.github.io/userguide/) is the primary documentation for CodeIgniter 4.
+<h2 id="tentang">👨🏻‍🏫 Tentang Presensi Siswa</h2>
 
-The current **in-progress** User Guide can be found [here](https://codeigniter4.github.io/CodeIgniter4/).
-As with the rest of the framework, it is a work in progress, and will see changes over time to structure, explanations, etc.
+Presensi Siswa adalah platform inovatif yang dirancang untuk mempermudah proses manajemen kehadiran siswa dengan lebih mudah. Dibangun menggunakan teknologi modern seperti CodeIgniter 4 dan Bootstrap 4, serta didukung oleh library DataTables dan template admin elegan dari Soft UI Dashboard.
 
-You might also be interested in the [API documentation](https://codeigniter4.github.io/api/) for the framework components.
+<p></p>
 
-## Important Change with index.php
+<h2 id="demo">🏠 Halaman Demo</h2>
 
-index.php is no longer in the root of the project! It has been moved inside the *public* folder,
-for better security and separation of components.
+Halaman demo untuk sementara tidak ada dikarenakan layanan hosting yang tidak tersedia untuk deploy aplikasi ini, kalian dapat mendownload aplikasi ini lalu menjalankan secara local di komputer anda.
 
-This means that you should configure your web server to "point" to your project's *public* folder, and
-not to the project root. A better practice would be to configure a virtual host to point there. A poor practice would be to point your web server to the project root and expect to enter *public/...*, as the rest of your logic and the
-framework are exposed.
+<p></p>
 
-**Please** read the user guide for a better explanation of how CI4 works!
+<h2 id="syarat">💾 Prasyarat yang Diperlukan</h2>
 
-## Repository Management
+Berikut adalah daftar layanan dan aplikasi yang wajib dan diperlukan selama anda menjalankan aplikasi kita bersuara jika anda belum menginstall nya maka disarankan untuk menginstall nya terlebih dahulu
 
-CodeIgniter is developed completely on a volunteer basis. As such, please give up to 7 days
-for your issues to be reviewed. If you haven't heard from one of the team in that time period,
-feel free to leave a comment on the issue so that it gets brought back to our attention.
+- PHP 7, 8 & Web Server [XAMPP, Laragon]
+- Web Browser [Chrome, Firefox, Safari & Opera]
+- Internet [Karena menggunakan banyak CDN]
+- Setting lanjutan PHP [max_upload & post_max di php.ini]
 
-We use GitHub issues to track **BUGS** and to track approved **DEVELOPMENT** work packages.
-We use our [forum](http://forum.codeigniter.com) to provide SUPPORT and to discuss
-FEATURE REQUESTS.
+<p></p>
 
-If you raise an issue here that pertains to support or a feature request, it will
-be closed! If you are not sure if you have found a bug, raise a thread on the forum first -
-someone else may have encountered the same thing.
+<h2 id="download">🐱‍💻 Panduan Menjalankan & Install Aplikasi</h2>
 
-Before raising a new GitHub issue, please check that your bug hasn't already
-been reported or fixed.
+Untuk menjalankan aplikasi atau web ini kamu harus install XAMPP dan mempunyai setidaknya satu web browser yang terinstall di komputer anda.
 
-We use pull requests (PRs) for CONTRIBUTIONS to the repository.
-We are looking for contributions that address one of the reported bugs or
-approved work packages.
+```bash
+# Clone repository ini atau download di
+$ git clone https://github.com/raaf17/presensi-app.git
 
-Do not use a PR as a form of feature request.
-Unsolicited contributions will only be considered if they fit nicely
-into the framework roadmap.
-Remember that some components that were part of CodeIgniter 3 are being moved
-to optional packages, with their own repository.
+# Buat database
+Buat database dengan nama "db_presensi" di DMBS [phpmyadmin, dll]
 
-## Contributing
+# Install composer
+Jalankan composer install
 
-We **are** accepting contributions from the community! It doesn't matter whether you can code, write documentation, or help find bugs,
-all contributions are welcome.
+# Konfigurasi .env
+Copy env menjadi .env, kemudian atur konfigurasi sesuai dengan sistem anda
 
-Please read the [*Contributing to CodeIgniter*](https://github.com/codeigniter4/CodeIgniter4/blob/develop/contributing/README.md).
+# Migrate database
+Jalankan php spark migrate
 
-CodeIgniter has had thousands on contributions from people since its creation. This project would not be what it is without them.
+# Run Aplikasi
+Jalankan perintah php spark serve untuk menjalankan aplikasi tersebut
 
-<a href="https://github.com/codeigniter4/CodeIgniter4/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=codeigniter4/CodeIgniter4" />
-</a>
+# Buka browser
+http://localhost:8080/presensi-app
 
-Made with [contrib.rocks](https://contrib.rocks).
+# Enjoy, jika ingin login maka liat panduan akun diatas
+```
 
-## Server Requirements
+<p></p>
 
-PHP version 7.4 or higher is required, with the following extensions installed:
+<h2 id="kontribusi">🤝 Kontribusi</h2>
 
-- [intl](http://php.net/manual/en/intl.requirements.php)
-- [mbstring](http://php.net/manual/en/mbstring.installation.php)
+Contributions, issues and feature requests sangat saya apresiasi karena aplikasi ini jauh dari kata sempurna. Jangan ragu untuk pull request dan membuat perubahan pada project ini.
 
-Additionally, make sure that the following extensions are enabled in your PHP:
+Berhubung Project ini saya selesaikan sendiri, namun banyak fitur dan banyak hal yang bisa diperbaiki maka bantuan kalian sangat saya apresiasi.
 
-- json (enabled by default - don't turn it off)
-- [mysqlnd](http://php.net/manual/en/mysqlnd.install.php) if you plan to use MySQL
-- [libcurl](http://php.net/manual/en/curl.requirements.php) if you plan to use the HTTP\CURLRequest library
+<p></p>
 
-## Running CodeIgniter Tests
+---
 
-Information on running the CodeIgniter test suite can be found in the [README.md](tests/README.md) file in the tests directory.
+**<p align="center">Mari kita bersama-sama membuat Presensi Siswa menjadi lebih baik! <br>
+Dengan Presensi, Anda akan merasakan manfaat dari manajemen kehadiran jadi lebih teratur. Jangan ragu untuk menjelajahi platform kami dan mulai memanfaatkan fitur canggih yang kami tawarkan.</p>**
