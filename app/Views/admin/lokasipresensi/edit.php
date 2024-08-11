@@ -45,7 +45,7 @@
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label for="" class="form-control-label">Tipe Lokasi</label>
-                                    <select name="tipe_lokasi" id="tipe_lokasi" class="<?= ($validation->hasError('tipe_lokasi')) ? 'is-invalid' : '' ?> form-control" value="<?= old('tipe_lokasi') ?>">
+                                    <select name="tipe_lokasi" id="tipe_lokasi" class="<?= ($validation->hasError('tipe_lokasi')) ? 'is-invalid' : '' ?> form-control select2" value="<?= old('tipe_lokasi') ?>">
                                         <option value="<?= $lokasipresensi->tipe_lokasi ?>"><?= $lokasipresensi->tipe_lokasi ?></option>
                                         <option value="Kantor">Kantor</option>
                                         <option value="Rumah">Rumah</option>
@@ -111,7 +111,7 @@
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label for="" class="form-control-label">Zona Waktu</label>
-                                    <select name="zona_waktu" id="zona_waktu" class="<?= ($validation->hasError('zona_waktu')) ? 'is-invalid' : '' ?> form-control">
+                                    <select name="zona_waktu" id="zona_waktu" class="<?= ($validation->hasError('zona_waktu')) ? 'is-invalid' : '' ?> form-control select2">
                                         <option value="<?= $lokasipresensi->zona_waktu ?>"><?= $lokasipresensi->zona_waktu ?></option>
                                         <option value="WIB">WIB</option>
                                         <option value="WITA">WITA</option>

@@ -1,50 +1,67 @@
 <?= $this->extend('layouts/main'); ?>
 
 <?= $this->section('content'); ?>
-<div class="card">
-    <div class="card-header pb-0 d-flex justify-content-between">
-        <h5 style="margin-top: 16px;">Data Pegawai</h5>
-        <div>
-            <a href="<?= site_url('admin/pegawai/create') ?>" class="btn btn-primary"><i class="fa-solid fa-plus"></i> Tambah Data</a>
+<div class="main-content">
+    <section class="section">
+        <div class="section-header">
+            <h1><?= $title ?></h1>
+            <div class="section-header-breadcrumb">
+                <div class="breadcrumb-item active"><a href="#">Master Data</a></div>
+                <div class="breadcrumb-item"><a href="#">Siswa</a></div>
+                <div class="breadcrumb-item"><?= $title ?></div>
+            </div>
         </div>
-    </div>
-    <div class="card-body">
-        <div class="table-responsive p-0">
-            <table class="table table-responsive table-striped align-items-center mb-0" id="table">
-                <thead>
-                    <tr>
-                        <th>No.</th>
-                        <th>NIP</th>
-                        <th>Nama</th>
-                        <th>Jabatan</th>
-                        <th>Lokasi Presensi</th>
-                        <th>Aksi</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php $no = 1; ?>
-                    <?php foreach ($pegawais as $pegawai) : ?>
-                        <tr>
-                            <td width="50" class="text-center"><?= $no++ ?>.</td>
-                            <td><?= $pegawai->nip ?></td>
-                            <td><?= $pegawai->nama ?></td>
-                            <td><?= $pegawai->nama_jabatan ?></td>
-                            <td><?= $pegawai->alamat_lokasi ?></td>
-                            <td width="50" class="text-center align-items-center">
-                                <a href="<?= site_url('admin/pegawai/detail/' . $pegawai->id) ?>" class="btn btn-sm btn-info">Detail</a>
-                                <a href="<?= site_url('admin/pegawai/edit/' . $pegawai->id) ?>" class="btn btn-sm btn-warning">Edit</a>
-                                <a href="<?= site_url('admin/pegawai/delete/' . $pegawai->id) ?>" class="btn btn-sm btn-danger tombol-hapus">Hapus</a>
-                            </td>
-                        </tr>
-                    <?php endforeach ?>
-                </tbody>
-            </table>
+
+        <div class="section-body">
+            <div class="card card-primary">
+                <div class="card-header">
+                    <h4>Data Siswa</h4>
+                    <div class="card-header-action">
+                        <a href="<?= site_url('admin/siswa/trash'); ?>" class="btn btn-info"><i class="fas fa-file-excel"></i> Import</a>
+                        <a href="<?= site_url('admin/siswa/create'); ?>" class="btn btn-primary"><i class="fas fa-plus"></i> Tambah</a>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-striped table-bordered" id="table1">
+                            <thead>
+                                <tr>
+                                    <th>No.</th>
+                                    <th>NISN</th>
+                                    <th>Nama Siswa</th>
+                                    <th>Kelas</th>
+                                    <th>Jenis Kelamin</th>
+                                    <th>No Handphone</th>
+                                    <th>Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php $no = 1; ?>
+                                <?php foreach ($siswa_all as $siswa) : ?>
+                                    <tr>
+                                        <td width="5"><?= $no++ ?>.</td>
+                                        <td><?= $siswa->nisn ?></td>
+                                        <td><?= $siswa->nama_siswa ?></td>
+                                        <td><?= $siswa->nama_kelas ?></td>
+                                        <td><?= $siswa->jenis_kelamin ?></td>
+                                        <td><?= $siswa->no_handphone ?></td>
+                                        <td width="150" class="text-center align-items-center">
+                                            <a href="<?= site_url('admin/siswa/detail/' . $siswa->id) ?>" class="btn btn-sm btn-info">Detail</a>
+                                            <a href="<?= site_url('admin/siswa/edit/' . $siswa->id) ?>" class="btn btn-sm btn-warning">Edit</a>
+                                            <a href="<?= site_url('admin/siswa/delete/' . $siswa->id) ?>" class="btn btn-sm btn-danger tombol-hapus">Hapus</a>
+                                        </td>
+                                    </tr>
+                                <?php endforeach ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="card-footer small text-muted">Updated at <?php $zone = 3600 * +7;
+                                                                        $date = gmdate("l, d F Y H:i a", time() + $zone);
+                                                                        echo "$date"; ?>
+                </div>
+            </div>
         </div>
-    </div>
-    <div class="card-footer small text-muted">Updated at <?php $zone = 3600 * +7;
-                                                            $date = gmdate("l, d F Y H:i a", time() + $zone);
-                                                            echo "$date"; ?>
-    </div>
+    </section>
 </div>
 <?= $this->endSection(); ?>
-<?php include('javascript.php') ?>

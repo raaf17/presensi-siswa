@@ -19,7 +19,8 @@
                     <h4>Data Kelas</h4>
                     <div class="card-header-action">
                         <a href="<?= site_url('admin/lokasipresensi/trash'); ?>" class="btn btn-info"><i class="fas fa-file-excel"></i> Import</a>
-                        <a href="<?= site_url('admin/lokasipresensi/create'); ?>" class="btn btn-primary"><i class="fas fa-file-excel"></i> Tambah</a>
+                        <a href="<?= site_url('admin/lokasipresensi/create'); ?>" class="btn btn-primary"><i class="fas fa-plus"></i> Tambah</a>
+                        <a href="<?= site_url('admin/lokasipresensi/trash'); ?>" class="btn btn-danger"><i class="fas fa-trash"></i> Trash</a>
                     </div>
                 </div>
                 <div class="card-body">

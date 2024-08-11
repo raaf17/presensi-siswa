@@ -14,7 +14,7 @@
                         <h5>Ambil Foto Selfie</h5>
                     </div>
                     <div class="card-body">
-                        <input type="hidden" id="id_pegawai" name="id_pegawai" value="<?= $id_pegawai ?>">
+                        <input type="hidden" id="id_siswa" name="id_siswa" value="<?= $id_siswa ?>">
                         <input type="hidden" id="tanggal_masuk" name="tanggal_masuk" value="<?= $tanggal_masuk ?>">
                         <input type="hidden" id="jam_masuk" name="jam_masuk" value="<?= $jam_masuk ?>">
                         <div class="d-flex justify-content-center">
@@ -46,7 +46,7 @@
     Webcam.attach('#my_camera');
 
     document.getElementById('ambil-foto').addEventListener('click', function() {
-        let id = document.getElementById('id_pegawai').value;
+        let id = document.getElementById('id_siswa').value;
         let tanggal_masuk = document.getElementById('tanggal_masuk').value;
         let jam_masuk = document.getElementById('jam_masuk').value;
 
@@ -55,15 +55,15 @@
             xhttp.onreadystatechange = function() {
                 document.getElementById('my_result').innerHTML = '<img src="' + data_uri + '" />';
                 if (this.readyState == 4 && this.status == 200) {
-                    window.location.href = '<?= site_url('pegawai/home') ?>';
+                    window.location.href = '<?= site_url('siswa/home') ?>';
                 }
             }
 
-            xhttp.open("POST", '<?= site_url('pegawai/presensimasukaksi') ?>', true);
+            xhttp.open("POST", '<?= site_url('siswa/presensimasukaksi') ?>', true);
             xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
             xhttp.send(
                 'foto_masuk=' + encodeURIComponent(data_uri) +
-                '&id_pegawai=' + id +
+                '&id_siswa=' + id +
                 '&tanggal_masuk=' + tanggal_masuk +
                 '&jam_masuk=' + jam_masuk
             );

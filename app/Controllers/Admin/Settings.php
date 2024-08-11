@@ -7,6 +7,8 @@ use App\Models\Setting;
 
 class Settings extends BaseController
 {
+    protected $helpers = ['CIFunctions'];
+
     public function index()
     {
         $data = [

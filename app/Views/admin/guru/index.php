@@ -20,7 +20,7 @@
                             <h4>Tambah Data Guru</h4>
                         </div>
                         <div class="card-body">
-                            <form action="<?= site_url('admin/guru/store') ?>" method="POST">
+                            <form action="<?= route_to('guru.store') ?>" method="POST">
                                 <?= csrf_field() ?>
                                 <div class="form-group">
                                     <label for="example-text-input" class="form-control-label">Nama Guru</label>
@@ -48,8 +48,8 @@
                         <div class="card-header">
                             <h4>Data Guru</h4>
                             <div class="card-header-action">
-                                <a href="<?= site_url('admin/guru/trash'); ?>" class="btn btn-info"><i class="fas fa-file-excel"></i> Import</a>
-                                <a href="<?= site_url('admin/guru/trash'); ?>" class="btn btn-danger"><i class="fas fa-trash"></i> Trash</a>
+                                <a href="<?= route_to('guru.trash'); ?>" class="btn btn-info"><i class="fas fa-file-excel"></i> Import</a>
+                                <a href="<?= route_to('guru.trash'); ?>" class="btn btn-danger"><i class="fas fa-trash"></i> Trash</a>
                             </div>
                         </div>
                         <div class="card-body">
@@ -92,4 +92,3 @@
 </div>
 <?php include('modal.php') ?>
 <?= $this->endSection(); ?>
-<?php include('javascript.php') ?>

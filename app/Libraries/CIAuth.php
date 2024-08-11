@@ -11,23 +11,29 @@ class CIAuth
         $session = session();
         $array = ['logged_in' => true];
         $userdata = $result;
-        $session->set('userdata', $userdata);
-        $session->set($array);
+        $session_data = [
+            'userdata' => $userdata,
+            'logged_in' => $array,
+        ];
+        $session->set($session_data);
     }
 
     public static function id()
     {
         $session = session();
+
         if ($session->has('logged_in') && $session->has('userdata')) {
             $userdata = $session->get('userdata');
-            return $userdata['id'] ?? null;
+            return $userdata->id ?? null;
         }
+
         return null;
     }
 
     public static function check()
     {
         $session = session();
+
         return $session->has('logged_in');
     }
 
@@ -41,6 +47,7 @@ class CIAuth
     public static function user()
     {
         $session = session();
+
         if ($session->has('logged_in')) {
             if ($session->has('userdata')) {
                 return $session->get('userdata');

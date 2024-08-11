@@ -83,4 +83,3 @@
 </div>
 <?php include('modal.php') ?>
 <?= $this->endSection(); ?>
-<?php include('javascript.php') ?>

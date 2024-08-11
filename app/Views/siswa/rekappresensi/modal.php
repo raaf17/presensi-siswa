@@ -8,7 +8,7 @@
                 </button>
             </div>
             <form action="">
-                <div class="card-body">
+                <div class="modal-body">
                     <div class="row">
                         <?php
                         $awal_tanggal = date('Y-m-01');
@@ -24,9 +24,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="card-footer d-flex justify-content-end">
+                <div class="modal-footer d-flex justify-content-end">
                     <center>
-                        <button type="submit" class="btn btn-success">Tampilkan</button>
+                        <button type="submit" class="btn btn-info">Tampilkan</button>
                         <button type="button" data-dismiss="modal" class="btn btn-secondary">Batal</button>
                     </center>
                 </div>
@@ -45,7 +45,7 @@
                 </button>
             </div>
             <form action="">
-                <div class="card-body">
+                <div class="modal-body">
                     <div class="row">
                         <?php
                         $awal_bulan = date('Y-m-01');
@@ -80,9 +80,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="card-footer d-flex justify-content-end">
+                <div class="modal-footer d-flex justify-content-end">
                     <center>
-                        <button type="submit" class="btn btn-success">Tampilkan</button>
+                        <button type="submit" class="btn btn-info">Tampilkan</button>
                         <button type="button" data-dismiss="modal" class="btn btn-secondary">Batal</button>
                     </center>
                 </div>

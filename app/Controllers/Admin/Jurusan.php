@@ -8,6 +8,7 @@ use CodeIgniter\HTTP\ResponseInterface;
 
 class Jurusan extends BaseController
 {
+    protected $helpers = ['CIFunctions'];
     protected $jurusan;
     protected $db;
 
@@ -54,7 +55,7 @@ class Jurusan extends BaseController
 
             session()->setFlashdata('message', 'Data jurusan berhasil ditambahkan');
 
-            return redirect()->to(site_url('admin/jurusan'));
+            return redirect()->route('jurusan');
         }
     }
 
@@ -86,7 +87,7 @@ class Jurusan extends BaseController
 
             session()->setFlashdata('message', 'Data jurusan berhasil diupdate');
 
-            return redirect()->to(site_url('admin/jurusan'));
+            return redirect()->route('jurusan');
         }
     }
 
@@ -96,7 +97,7 @@ class Jurusan extends BaseController
 
         session()->setFlashdata('message', 'Data jurusan berhasil dihapus');
 
-        return redirect()->to(site_url('admin/jurusan'));
+        return redirect()->route('jurusan');
     }
 
     public function trash()
@@ -125,7 +126,7 @@ class Jurusan extends BaseController
         if ($this->db->affectedRows() > 0) {
             session()->setFlashdata('message', 'Data Berhasil Direstore');
 
-            return redirect()->to(site_url('admin/jurusan'));
+            return redirect()->route('jurusan');
         }
     }
 
@@ -136,13 +137,13 @@ class Jurusan extends BaseController
 
             session()->setFlashdata('message', 'Data Berhasil Dihapus Permanen');
 
-            return redirect()->to(site_url('admin/jurusan/index'));
+            return redirect()->route('jurusan');
         } else {
             $this->jurusan->purgeDeleted();
 
             session()->setFlashdata('message', 'Data Trash Berhasil Dihapus Permanen');
 
-            return redirect()->to(site_url('admin/jurusan/index'));
+            return redirect()->route('jurusan');
         }
     }
 }

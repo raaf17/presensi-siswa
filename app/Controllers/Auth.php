@@ -5,7 +5,7 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use App\Libraries\CIAuth;
 use App\Libraries\Hash;
-use App\Models\User;
+use App\Models\UserModel;
 use App\Models\PasswordResetToken;
 use Carbon\Carbon;
 use PhpParser\Node\Expr\Cast;
@@ -17,7 +17,7 @@ class Auth extends BaseController
 
     public function __construct()
     {
-        $this->user = new User();
+        $this->user = new UserModel();
     }
 
     public function loginForm()
@@ -80,13 +80,24 @@ class Auth extends BaseController
             ]);
         } else {
             $userInfo = $this->user->where($fieldType, $this->request->getVar('login_id'))->first();
-            $check_password = Hash::check($this->request->getVar('password'), $userInfo['password']);
+            $check_password = Hash::check($this->request->getVar('password'), $userInfo->password);
 
             if (!$check_password) {
-                return redirect()->route('admin.login.form')->with('fail', 'Password salah')->withInput();
+                return redirect()->route('login.form')->with('fail', 'Password salah')->withInput();
             } else {
                 CIAuth::setCIAuth($userInfo);
-                return redirect()->route('admin.home');
+                
+                $userdata = session()->get('userdata');
+
+                if ($userdata->role == 'Admin') {
+                    return redirect()->route('admin.home');
+                } elseif ($userdata->role == 'Siswa') {
+                    return redirect()->route('siswa.home');
+                } else {
+                    session()->setFlashdata('message', 'Akun anda belum terdaftar');
+
+                    return redirect()->route('login.form');
+                }
             }
         }
     }
@@ -261,7 +272,7 @@ class Auth extends BaseController
                     $passwordResetPassword->where('email', $user_info->email)->delete();
 
                     // Redirect and display message on login page
-                    return redirect()->route('admin.login.form')->with('success', 'Selesai!, kata sandi Anda telah diubah. Gunakan kata sandi baru untuk masuk ke sistem.');
+                    return redirect()->route('login.form')->with('success', 'Selesai!, kata sandi Anda telah diubah. Gunakan kata sandi baru untuk masuk ke sistem.');
                 } else {
                     return redirect()->back()->with('fail', 'Something went wrong')->withInput();
                 }
@@ -273,6 +284,6 @@ class Auth extends BaseController
     {
         CIAuth::forget();
 
-        return redirect()->route('admin.login.form')->with('fail', 'Anda Keluar');
+        return redirect()->route('login.form')->with('fail', 'Anda Keluar');
     }
 }

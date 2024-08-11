@@ -24,7 +24,7 @@
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label for="example-text-input" class="form-control-label">Nama Jurusan</label>
-                                    <select name="id_jurusan" id="" class="<?= ($validation->hasError('id_jurusan')) ? 'is-invalid' : '' ?> form-control" required>
+                                    <select name="id_jurusan" id="" class="<?= ($validation->hasError('id_jurusan')) ? 'is-invalid' : '' ?> form-control select2" required>
                                         <option value="" hidden></option>
                                         <?php foreach ($jurusan_select as $jurusan) : ?>
                                             <option value="<?= $jurusan->id; ?>" <?= $kelas->id_jurusan == $jurusan->id ? 'selected' : null ?> ><?= $jurusan->nama_jurusan; ?></option>
@@ -40,7 +40,7 @@
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label for="example-text-input" class="form-control-label">Nama Guru</label>
-                                    <select name="id_guru" id="" class="form-control" required>
+                                    <select name="id_guru" id="" class="<?= ($validation->hasError('id_guru')) ? 'is-invalid' : '' ?> form-control select2" required>
                                         <option value="" hidden></option>
                                         <?php foreach ($guru_select as $guru) : ?>
                                             <option value="<?= $guru->id; ?>" <?= $kelas->id_guru == $guru->id ? 'selected' : null ?> ><?= $guru->nama_guru; ?></option>

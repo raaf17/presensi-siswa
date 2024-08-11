@@ -39,16 +39,16 @@
     }
 
     function showPosition(position) {
-        var latitude_pegawai = position.coords.latitude;
-        var longitude_pegawai = position.coords.longitude;
+        var latitude_siswa = position.coords.latitude;
+        var longitude_siswa = position.coords.longitude;
 
-        document.getElementById('latitude_pegawai').value = latitude_pegawai;
-        document.getElementById('longitude_pegawai').value = longitude_pegawai;
+        document.getElementById('latitude_siswa').value = latitude_siswa;
+        document.getElementById('longitude_siswa').value = longitude_siswa;
 
-        initMap(latitude_pegawai, longitude_pegawai);
+        initMap(latitude_siswa, longitude_siswa);
     }
 
-    function initMap(latitude_pegawai, longitude_pegawai) {
+    function initMap(latitude_siswa, longitude_siswa) {
         var map = L.map('map').setView([<?= $lokasipresensi->latitude ?>, <?= $lokasipresensi->longitude ?>], 13);
 
         L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -56,7 +56,7 @@
             attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
         }).addTo(map);
 
-        var circle = L.circle([latitude_pegawai, longitude_pegawai], {
+        var circle = L.circle([latitude_siswa, longitude_siswa], {
             color: 'red',
             fillColor: '#f03',
             fillOpacity: 0.5,
@@ -64,8 +64,8 @@
         }).addTo(map);
 
         var greenIcon = L.icon({
-            iconUrl: '<?= base_url('assets/img/icons/office-building.png') ?>',
-            shadowUrl: '<?= base_url('assets/img/icons/office-building.png') ?>',
+            iconUrl: '<?= base_url('images/icons/office-building.png') ?>',
+            shadowUrl: '<?= base_url('images/icons/office-building.png') ?>',
 
             iconSize: [50, 64],
             shadowSize: [50, 64],

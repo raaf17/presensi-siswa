@@ -7,6 +7,7 @@ use App\Models\GuruModel;
 
 class Guru extends BaseController
 {
+    protected $helpers = ['CIFunctions'];
     protected $guru;
     protected $db;
 
@@ -62,7 +63,7 @@ class Guru extends BaseController
 
             session()->setFlashdata('message', 'Data guru berhasil ditambahkan');
 
-            return redirect()->to(site_url('admin/guru'));
+            return redirect()->route('guru');
         }
     }
 
@@ -103,7 +104,7 @@ class Guru extends BaseController
 
             session()->setFlashdata('message', 'Data guru berhasil diupdate');
 
-            return redirect()->to(site_url('admin/guru'));
+            return redirect()->route('guru');
         }
     }
 
@@ -113,7 +114,7 @@ class Guru extends BaseController
 
         session()->setFlashdata('message', 'Data guru berhasil dihapus');
 
-        return redirect()->to(site_url('admin/guru'));
+        return redirect()->route('guru');
     }
 
     public function trash()
@@ -142,7 +143,7 @@ class Guru extends BaseController
         if ($this->db->affectedRows() > 0) {
             session()->setFlashdata('message', 'Data Berhasil Direstore');
 
-            return redirect()->to(site_url('admin/guru'));
+            return redirect()->route('guru');
         }
     }
 
@@ -153,13 +154,13 @@ class Guru extends BaseController
 
             session()->setFlashdata('message', 'Data Berhasil Dihapus Permanen');
 
-            return redirect()->to(site_url('admin/guru/index'));
+            return redirect()->route('guru');
         } else {
             $this->guru->purgeDeleted();
 
             session()->setFlashdata('message', 'Data Trash Berhasil Dihapus Permanen');
 
-            return redirect()->to(site_url('admin/guru/index'));
+            return redirect()->route('guru');
         }
     }
 }

@@ -9,6 +9,7 @@ use App\Models\KelasModel;
 
 class Kelas extends BaseController
 {
+    protected $helpers = ['CIFunctions'];
     protected $kelas;
     protected $jurusan;
     protected $guru;
@@ -86,7 +87,7 @@ class Kelas extends BaseController
 
             session()->setFlashdata('message', 'Data kelas berhasil ditambahkan');
 
-            return redirect()->to(site_url('admin/kelas'));
+            return redirect()->route('kelas');
         }
     }
 
@@ -139,7 +140,7 @@ class Kelas extends BaseController
 
             session()->setFlashdata('message', 'Data kelas berhasil diupdate');
 
-            return redirect()->to(site_url('admin/kelas'));
+            return redirect()->route('kelas');
         }
     }
 
@@ -149,6 +150,6 @@ class Kelas extends BaseController
 
         session()->setFlashdata('message', 'Data kelas berhasil dihapus');
 
-        return redirect()->to(site_url('admin/kelas'));
+        return redirect()->route('kelas');
     }
 }

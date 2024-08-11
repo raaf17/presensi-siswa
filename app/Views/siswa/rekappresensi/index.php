@@ -17,13 +17,13 @@
                 <div class="card-header">
                     <h4>Rekap Harian</h4>
                     <div class="card-header-action">
-                        <a href="<?= site_url('admin/jurusan/trash'); ?>" class="btn btn-info"><i class="fas fa-file-excel"></i> Import</a>
-                        <a href="<?= site_url('admin/jurusan/trash'); ?>" class="btn btn-danger"><i class="fas fa-trash"></i> Trash</a>
+                        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#filter-tanggal"><i class="fa-regular fa-calendar"></i> Tanggal</button>
+                        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#filter-bulan"><i class="fa-regular fa-calendar"></i> Bulan</button>
                     </div>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table table-responsive table-striped align-items-center mb-0" id="table">
+                        <table class="table table-striped table-bordered" id="table1">
                             <thead>
                                 <tr>
                                     <th>No.</th>

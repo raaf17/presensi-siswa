@@ -53,11 +53,11 @@
             xhttp.onreadystatechange = function() {
                 document.getElementById('my_result').innerHTML = '<img src="' + data_uri + '" />';
                 if (this.readyState == 4 && this.status == 200) {
-                    window.location.href = '<?= site_url('pegawai/home') ?>';
+                    window.location.href = '<?= site_url('siswa/home') ?>';
                 }
             }
 
-            xhttp.open("POST", '<?= site_url('pegawai/presensikeluaraksi/' . $id_presensi) ?>', true);
+            xhttp.open("POST", '<?= site_url('siswa/presensikeluaraksi/' . $id_presensi) ?>', true);
             xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
             xhttp.send(
                 'foto_keluar=' + encodeURIComponent(data_uri) +

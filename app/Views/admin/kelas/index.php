@@ -35,7 +35,7 @@
                                     <div class="col-lg-6">
                                         <div class="form-group">
                                             <label for="example-text-input" class="form-control-label">Nama Jurusan</label>
-                                            <select name="id_jurusan" id="" class="form-control" required>
+                                            <select name="id_jurusan" id="" class="form-control select2" required>
                                                 <option value="">-- Pilih Jurusan --</option>
                                                 <?php foreach ($jurusan_select as $jurusan) : ?>
                                                     <option value="<?= $jurusan->id; ?>"><?= $jurusan->nama_jurusan; ?></option>
@@ -51,7 +51,7 @@
                                     <div class="col-lg-6">
                                         <div class="form-group">
                                             <label for="example-text-input" class="form-control-label">Nama Guru</label>
-                                            <select name="id_guru" id="" class="form-control" required>
+                                            <select name="id_guru" id="" class="form-control select2" required>
                                                 <option value="">-- Pilih Wali Kelas --</option>
                                                 <?php foreach ($guru_select as $guru) : ?>
                                                     <option value="<?= $guru->id; ?>"><?= $guru->nama_guru; ?></option>
@@ -133,4 +133,3 @@
 </div>
 <?php include('modal.php') ?>
 <?= $this->endSection(); ?>
-<?php include('javascript.php') ?>

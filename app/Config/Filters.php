@@ -2,7 +2,9 @@
 
 namespace Config;
 
-use App\Filters\CIFilter;
+// use App\Filters\CIFilter;
+use App\Filters\CIFilterAdmin;
+use App\Filters\CIFilterSiswa;
 use CodeIgniter\Config\BaseConfig;
 use CodeIgniter\Filters\CSRF;
 use CodeIgniter\Filters\DebugToolbar;
@@ -22,7 +24,9 @@ class Filters extends BaseConfig
         'honeypot'      => Honeypot::class,
         'invalidchars'  => InvalidChars::class,
         'secureheaders' => SecureHeaders::class,
-        'cifilter'      => CIFilter::class,
+        // 'cifilter'      => CIFilter::class,
+        'cifilteradmin' => CIFilterAdmin::class,
+        'cifiltersiswa' => CIFilterSiswa::class,
     ];
 
     /**

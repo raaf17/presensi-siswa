@@ -7,20 +7,32 @@
     </form>
     <ul class="navbar-nav navbar-right">
         <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
-                <img alt="image" src="../assets/img/avatar/avatar-1.png" class="rounded-circle mr-1">
-                <div class="d-sm-none d-lg-inline-block">Hi, Ujang Maman</div>
+                <?php if (get_user()->role) : ?>
+                    <img alt="image" src="<?= get_user()->foto == null ? '/images/users/2.jpg' : '/images/users/' . get_user()->foto; ?>" class="rounded-circle mr-1">
+                    <div class="d-sm-none d-lg-inline-block">Hi, <span class="text-uppercase"><?= get_user()->username; ?></span></div>
+                <?php endif ?>
             </a>
             <div class="dropdown-menu dropdown-menu-right">
-                <a href="<?= site_url() ?>" class="dropdown-item has-icon">
-                    <i class="far fa-user"></i> Profile
-                </a>
-                <a href="<?= site_url() ?>" class="dropdown-item has-icon">
-                    <i class="fas fa-cog"></i> Settings
-                </a>
-                <div class="dropdown-divider"></div>
-                <a href="<?= site_url() ?>" class="dropdown-item has-icon text-danger tombol-logout">
-                    <i class="fas fa-sign-out-alt"></i> Logout
-                </a>
+                <?php if (get_user()->role == 'Admin') : ?>
+                    <a href="<?= route_to('profile') ?>" class="dropdown-item has-icon">
+                        <i class="far fa-user"></i> Profile
+                    </a>
+                    <a href="<?= route_to('settings') ?>" class="dropdown-item has-icon">
+                        <i class="fas fa-cog"></i> Settings
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a href="<?= route_to('logout') ?>" class="dropdown-item has-icon text-danger tombol-logout">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </a>
+                <?php elseif (get_user()->role == 'Siswa') : ?>
+                    <a href="<?= route_to('profile') ?>" class="dropdown-item has-icon">
+                        <i class="far fa-user"></i> Profile
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a href="<?= route_to('logout') ?>" class="dropdown-item has-icon text-danger tombol-logout">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </a>
+                <?php endif ?>
             </div>
         </li>
     </ul>

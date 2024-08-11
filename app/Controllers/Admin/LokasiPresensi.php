@@ -8,6 +8,7 @@ use CodeIgniter\HTTP\ResponseInterface;
 
 class LokasiPresensi extends BaseController
 {
+    protected $helpers = ['CIFunctions'];
     protected $lokasipresensi;
 
     public function __construct()
@@ -140,7 +141,7 @@ class LokasiPresensi extends BaseController
 
             session()->setFlashdata('message', 'Data Lokasi Presensi berhasil ditambahkan');
 
-            return redirect()->to(site_url('admin/lokasipresensi'));
+            return redirect()->route('lokasipresensi');
         }
     }
 
@@ -249,20 +250,63 @@ class LokasiPresensi extends BaseController
 
             session()->setFlashdata('message', 'Data Lokasi Presensi berhasil diupdate');
 
-            return redirect()->to(site_url('admin/lokasipresensi'));
+            return redirect()->route('lokasipresensi');
         }
     }
 
     public function delete($id)
     {
-        $lokasipresensi = $this->lokasipresensi->find($id);
+        $this->lokasipresensi->delete($id);
 
-        if ($lokasipresensi) {
-            $this->lokasipresensi->delete($id);
+        session()->setFlashdata('message', 'Data Lokasi Presensi berhasil dihapus');
 
-            session()->setFlashdata('message', 'Data Lokasi Presensi berhasil dihapus');
+        return redirect()->route('lokasipresensi');
+    }
 
-            return redirect()->to(site_url('admin/lokasipresensi'));
+    public function trash()
+    {
+        $data = [
+            'title' => 'Lokasi Presensi Trash',
+            'lokasipresensi_trash' => $this->lokasipresensi->onlyDeleted()->findAll(),
+        ];
+        return view('admin/lokasipresensi/trash', $data);
+    }
+
+    public function restore($id = null)
+    {
+        $this->db = \Config\Database::connect();
+        if ($id != null) {
+            $this->db->table('lokasi_presensi')
+                ->set('deleted_at', null, true)
+                ->where(['id' => $id])
+                ->update();
+        } else {
+            $this->db->table('lokasi_presensi')
+                ->set('deleted_at', null, true)
+                ->where('deleted_at is NOT NULL', NULL, FALSE)
+                ->update();
+        }
+        if ($this->db->affectedRows() > 0) {
+            session()->setFlashdata('message', 'Data Berhasil Direstore');
+
+            return redirect()->route('lokasipresensi');
+        }
+    }
+
+    public function delete2($id = null)
+    {
+        if ($id != null) {
+            $this->lokasipresensi->delete($id, true);
+
+            session()->setFlashdata('message', 'Data Berhasil Dihapus Permanen');
+
+            return redirect()->route('lokasipresensi');
+        } else {
+            $this->lokasipresensi->purgeDeleted();
+
+            session()->setFlashdata('message', 'Data Trash Berhasil Dihapus Permanen');
+
+            return redirect()->route('lokasipresensi');
         }
     }
 }

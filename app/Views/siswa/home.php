@@ -12,7 +12,7 @@
             <div class="col-lg-4 col-md-6 mb-3">
                 <div class="card">
                     <div class="card-header">
-                        Presensi Masuk
+                        <h4>Presensi Masuk</h4>
                     </div>
                     <?php if ($cek_presensi < 1) : ?>
                         <div class="card-body text-center">
@@ -24,7 +24,7 @@
                                 <div>:</div>
                                 <div id="detik-masuk"></div>
                             </div>
-                            <form action="<?= site_url('pegawai/presensimasuk') ?>" method="POST">
+                            <form action="<?= site_url('siswa/presensimasuk') ?>" method="POST">
                                 <?php
                                 if ($lokasipresensi->zona_waktu == 'WIB') {
                                     date_default_timezone_set('Asia/Jakarta');
@@ -39,19 +39,19 @@
                                 <input type="hidden" name="longitude_kantor" value="<?= $lokasipresensi->longitude ?>">
                                 <input type="hidden" name="radius" value="<?= $lokasipresensi->radius ?>">
 
-                                <input type="hidden" name="latitude_pegawai" id="latitude_pegawai">
-                                <input type="hidden" name="longitude_pegawai" id="longitude_pegawai">
+                                <input type="hidden" name="latitude_siswa" id="latitude_siswa">
+                                <input type="hidden" name="longitude_siswa" id="longitude_siswa">
 
                                 <input type="hidden" name="tanggal_masuk" value="<?= date('Y-m-d') ?>">
                                 <input type="hidden" name="jam_masuk" value="<?= date('H:i:s') ?>">
-                                <input type="hidden" name="id_pegawai" value="<?= session()->get('id_pegawai') ?>">
+                                <input type="hidden" name="id_siswa" value="<?= session()->get('id_siswa') ?>">
                                 <button class="btn btn-info mt-4">Masuk</button>
                             </form>
                         </div>
                     <?php else : ?>
                         <div class="card-body text-center">
                             <div class="d-flex justify-content-center mb-4">
-                                <img width="90px" src="<?= base_url() ?>/assets/img/icons/check-mark.png" alt="">
+                                <img width="68px" src="<?= base_url() ?>/images/icons/check-mark.png" alt="">
                             </div>
                             <h5>Anda telah melakukan presensi masuk.</h5>
                         </div>
@@ -61,19 +61,19 @@
             <div class="col-lg-4 col-md-6 mb-3">
                 <div class="card">
                     <div class="card-header">
-                        Presensi Keluar
+                        <h4>Presensi Masuk</h4>
                     </div>
                     <?php if ($cek_presensi < 1) : ?>
                         <div class="card-body text-center">
                             <div class="d-flex justify-content-center mb-4">
-                                <img width="90px" src="<?= base_url() ?>/assets/img/icons/hourglass.png" alt="">
+                                <img width="68px" src="<?= base_url() ?>/images/icons/hourglass.png" alt="">
                             </div>
                             <h5>Anda belum melakukan presensi masuk.</h5>
                         </div>
                     <?php elseif ($cek_presensi_keluar > 0) : ?>
                         <div class="card-body text-center">
                             <div class="d-flex justify-content-center mb-4">
-                                <img width="90px" src="<?= base_url() ?>/assets/img/icons/close.png" alt="">
+                                <img width="68px" src="<?= base_url() ?>/images/icons/close.png" alt="">
                             </div>
                             <h5>Anda telah melakukan presensi keluar.</h5>
                         </div>
@@ -87,7 +87,7 @@
                                 <div>:</div>
                                 <div id="detik-keluar"></div>
                             </div>
-                            <form action="<?= site_url('pegawai/presensikeluar/' . $ambil_presensi_masuk->id) ?>" method="POST">
+                            <form action="<?= site_url('siswa/presensikeluar/' . $ambil_presensi_masuk->id) ?>" method="POST">
                                 <?php
                                 if ($lokasipresensi->zona_waktu == 'WIB') {
                                     date_default_timezone_set('Asia/Jakarta');
@@ -102,8 +102,8 @@
                                 <input type="hidden" name="longitude_kantor" value="<?= $lokasipresensi->longitude ?>">
                                 <input type="hidden" name="radius" value="<?= $lokasipresensi->radius ?>">
 
-                                <input type="hidden" name="latitude_pegawai" id="latitude_pegawai">
-                                <input type="hidden" name="longitude_pegawai" id="longitude_pegawai">
+                                <input type="hidden" name="latitude_siswa" id="latitude_siswa">
+                                <input type="hidden" name="longitude_siswa" id="longitude_siswa">
 
                                 <input type="hidden" name="tanggal_keluar" value="<?= date('Y-m-d') ?>">
                                 <input type="hidden" name="jam_keluar" value="<?= date('H:i:s') ?>">
@@ -115,7 +115,7 @@
             </div>
             <div class="col-lg-2 col-md-0"></div>
         </div>
-        <div class="row mt-2">
+        <div class="row">
             <div class="col-lg-2"></div>
             <div class="col-lg-8">
                 <div class="card">
