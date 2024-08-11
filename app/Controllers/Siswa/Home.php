@@ -28,7 +28,7 @@ class Home extends BaseController
         $id_siswa = $userdata->id_siswa;
         $siswa = $this->siswa->where('id', $id_siswa)->first();
         $data = [
-            'title' => 'Home',
+            'title' => 'Dashboard',
             'lokasipresensi' => $this->lokasipresensi->where('id', $siswa->id_lokasi_presensi)->first(),
             'cek_presensi' => $this->presensi->where('id_siswa', $id_siswa)->where('tanggal_masuk', date('Y-m-d'))->countAllResults(),
             'cek_presensi_keluar' => $this->presensi->where('id_siswa', $id_siswa)->where('tanggal_masuk', date('Y-m-d'))->where('tanggal_keluar IS NOT NULL')->where('tanggal_keluar !=', 0000 - 00 - 00)->countAllResults(),
@@ -56,7 +56,7 @@ class Home extends BaseController
             return redirect()->route('siswa.home');
         } else {
             $data = [
-                'title' => 'Ambil foto selfie',
+                'title' => 'Ambil Foto Selfie',
                 'id_siswa' => $this->request->getPost('id_siswa'),
                 'tanggal_masuk' => $this->request->getPost('tanggal_masuk'),
                 'jam_masuk' => $this->request->getPost('jam_masuk'),
@@ -111,7 +111,7 @@ class Home extends BaseController
             return redirect()->route('siswa.home');
         } else {
             $data = [
-                'title' => 'Ambil foto selfie',
+                'title' => 'Ambil Foto Selfie',
                 'id_presensi' => $id,
                 'tanggal_keluar' => $this->request->getPost('tanggal_keluar'),
                 'jam_keluar' => $this->request->getPost('jam_keluar'),
