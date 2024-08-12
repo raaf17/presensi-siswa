@@ -95,8 +95,6 @@
                                         <tr>
                                             <th>No.</th>
                                             <th>Nama Kelas</th>
-                                            <th>Jurusan</th>
-                                            <th>Wali Kelas</th>
                                             <th>Keterangan</th>
                                             <th>Aksi</th>
                                         </tr>
@@ -107,10 +105,9 @@
                                             <tr>
                                                 <td width="5"><?= $no++ ?>.</td>
                                                 <td><?= $kelas->nama_kelas ?></td>
-                                                <td><?= $kelas->nama_jurusan ?></td>
-                                                <td><?= $kelas->nama_guru ?></td>
                                                 <td><?= $kelas->keterangan ?></td>
-                                                <td width="100" class="text-center">
+                                                <td width="150" class="text-center">
+                                                    <button type="button" class="btn btn-sm btn-info" data-toggle="modal" data-target="#detailModal<?= $kelas->id ?>">Detail</button>
                                                     <button type="button" class="btn btn-sm btn-warning" data-toggle="modal" data-target="#editModal<?= $kelas->id ?>">Edit</button>
                                                     <a href="<?= site_url('admin/kelas/delete/' . $kelas->id) ?>" class="btn btn-sm btn-danger tombol-hapus">Hapus</a>
                                                 </td>

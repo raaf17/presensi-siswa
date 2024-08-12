@@ -91,18 +91,32 @@
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label for="" class="form-control-label">Jam Masuk</label>
-                                    <input type="time" class="<?= ($validation->hasError('jam_masuk')) ? 'is-invalid' : '' ?> form-control" name="jam_masuk" id="jam_masuk" placeholder="Jam Masuk" value="<?= old('jam_masuk') ?>">
-                                    <div class="invalid-feedback">
-                                        <?= $validation->getError('jam_masuk') ?>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text">
+                                                <i class="fas fa-clock"></i>
+                                            </div>
+                                        </div>
+                                        <input type="time" class="<?= ($validation->hasError('jam_masuk')) ? 'is-invalid' : '' ?> form-control timepicker" name="jam_masuk" id="jam_masuk" placeholder="Jam Masuk" value="<?= old('jam_masuk') ?>">
+                                        <div class="invalid-feedback">
+                                            <?= $validation->getError('jam_masuk') ?>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label for="" class="form-control-label">Jam Pulang</label>
-                                    <input type="time" class="<?= ($validation->hasError('jam_pulang')) ? 'is-invalid' : '' ?> form-control" name="jam_pulang" id="jam_pulang" placeholder="Jam Pulang" value="<?= old('jam_pulang') ?>">
-                                    <div class="invalid-feedback">
-                                        <?= $validation->getError('jam_pulang') ?>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text">
+                                                <i class="fas fa-clock"></i>
+                                            </div>
+                                        </div>
+                                        <input type="time" class="<?= ($validation->hasError('jam_pulang')) ? 'is-invalid' : '' ?> form-control timepicker" name="jam_pulang" id="jam_pulang" placeholder="Jam Masuk" value="<?= old('jam_pulang') ?>">
+                                        <div class="invalid-feedback">
+                                            <?= $validation->getError('jam_pulang') ?>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

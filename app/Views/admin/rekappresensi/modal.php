@@ -14,13 +14,13 @@
                         $awal_tanggal = date('Y-m-01');
                         ?>
                         <div class="col-lg-5">
-                            <input type="date" name="tanggal_awal" id="awal_tanggal" class="form-control" value="<?php echo $awal_tanggal; ?>">
+                            <input type="text" name="tanggal_awal" id="awal_tanggal" class="form-control datepicker" value="<?php echo $awal_tanggal; ?>">
                         </div>
                         <div class="col-lg-2 d-flex justify-content-center align-items-center">
                             <label>S/d</label>
                         </div>
                         <div class="col-lg-5">
-                            <input type="date" name="tanggal_akhir" id="akhir_tanggal" class="form-control" value="<?php echo date('Y-m-d'); ?>">
+                            <input type="text" name="tanggal_akhir" id="akhir_tanggal" class="form-control datepicker" value="<?php echo date('Y-m-d'); ?>">
                         </div>
                     </div>
                 </div>

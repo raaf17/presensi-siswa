@@ -20,6 +20,6 @@ class KelasModel extends Model
         $builder->join('guru', 'guru.id = kelas.id_guru');
         $query = $builder->get();
         
-        return $query->getResult();
+        return $query->getResultObject();
     }
 }

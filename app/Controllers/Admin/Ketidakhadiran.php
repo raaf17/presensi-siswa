@@ -27,7 +27,6 @@ class Ketidakhadiran extends BaseController
 
     public function approvedKetidakhadiran($id)
     {
-        dd($id);
         $this->ketidakhadiran->update($id, [
             'status' => 'Approved',
         ]);

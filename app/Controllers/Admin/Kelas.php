@@ -26,8 +26,8 @@ class Kelas extends BaseController
     {
         $data = [
             'title' => 'Data Kelas',
-            'kelas_all' => $this->kelas->getAll(),
-            'get_kelas' => $this->kelas->findAll(),
+            'kelas_all' => $this->kelas->findAll(),
+            'semua_kelas' => $this->kelas->getAll(),
             'jurusan_select' => $this->jurusan->findAll(),
             'guru_select' => $this->guru->findAll(),
             'validation' => \Config\Services::validation(),
@@ -131,7 +131,8 @@ class Kelas extends BaseController
 
             echo view('admin/kelas/index', $data);
         } else {
-            $this->kelas->update($id, [
+            $id_kelas = $this->request->getPost('id_kelas');
+            $this->kelas->update($id_kelas, [
                 'id_jurusan' => $this->request->getPost('id_jurusan'),
                 'id_guru' => $this->request->getPost('id_guru'),
                 'nama_kelas' => $this->request->getPost('nama_kelas'),

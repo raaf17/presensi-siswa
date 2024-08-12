@@ -8,8 +8,8 @@
     <title>Presensi Siswa | <?= $title ?></title>
 
     <!-- General CSS Files -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="<?= base_url() ?>/extra-assets/bootstrap-4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="<?= base_url() ?>/extra-assets/fontawesome-free-6.6.0/css/all.min.css">
 
     <!-- CSS Libraries -->
     <link rel="stylesheet" href="<?= base_url('template') ?>/node_modules/datatables.net-bs4/css/dataTables.bootstrap4.min.css">
@@ -49,8 +49,7 @@
     </div>
 
     <!-- General JS Script -->
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-    <!-- <script src="<?= base_url('template') ?>/node_modules/jquery/dist/jquery.min.js"></script> -->
+    <script src="<?= base_url() ?>/extra-assets/jquery.js"></script>
     <script src="<?= base_url('template') ?>/node_modules/popper.js/dist/umd/popper.min.js"></script>
     <script src="<?= base_url('template') ?>/node_modules/tooltip.js"></script>
     <script src="<?= base_url('template') ?>/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
